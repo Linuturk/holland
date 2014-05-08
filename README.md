@@ -1,6 +1,8 @@
 holland
 ========
 
+[![Build Status](https://drone-opsdev.rax.io/github.com/rack-roles/holland/status.svg?branch=master)](https://drone-opsdev.rax.io/github.com/rack-roles/holland)
+
 This role will install and configure the holland backup tool.
 
 Requirements

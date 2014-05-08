@@ -11,3 +11,6 @@
   with_items:
     - holland
     - holland-mysqldump
+
+- name: setup nightly backups with cron
+  template: src=holland.j2 dest=/etc/cron.d/holland owner=root group=root mode=0644

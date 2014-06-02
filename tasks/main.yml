@@ -12,5 +12,10 @@
     - holland
     - holland-mysqldump
 
+- name: check cron setup status
+  stat: path=/etc/cron.d/holland
+  register: cron_setup
+
 - name: setup nightly backups with cron
   template: src=holland.j2 dest=/etc/cron.d/holland owner=root group=root mode=0644
+  when: cron_setup.stat.exists == False

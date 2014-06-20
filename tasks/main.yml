@@ -1,10 +1,13 @@
 ---
 # tasks file for holland
-- name: setup holland apt key
-  apt_key: url='http://download.opensuse.org/repositories/home:/holland-backup/xUbuntu_14.04/Release.key' state=present
+- include: Debian.yml
+  when: ansible_os_family == 'Debian'
 
-- name: setup holland apt repository
-  apt_repository: repo='deb http://download.opensuse.org/repositories/home:/holland-backup/xUbuntu_14.04/ ./' state=present
+- include: RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include: unsupported_os.yml
+  when: holland_supported_os is not defined
 
 - name: install holland
   apt: name={{ item }} state=present update_cache=yes cache_valid_time=86400

@@ -1,0 +1,4 @@
+---
+- name: RedHat | Supported OS
+  set_fact:
+    holland_supported_os: True

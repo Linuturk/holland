@@ -9,12 +9,6 @@
 - include: unsupported_os.yml
   when: holland_supported_os is not defined
 
-- name: install holland
-  apt: name={{ item }} state=present update_cache=yes cache_valid_time=86400
-  with_items:
-    - holland
-    - holland-mysqldump
-
 - name: check cron setup status
   stat: path=/etc/cron.d/holland
   register: cron_setup

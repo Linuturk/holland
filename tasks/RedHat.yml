@@ -2,3 +2,9 @@
 - name: RedHat | Supported OS
   set_fact:
     holland_supported_os: True
+
+- name: RedHat | install holland
+  yum: pkg={{ item }} state=latest
+  with_items:
+    - holland
+    - holland-mysqldump

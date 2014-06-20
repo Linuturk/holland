@@ -8,3 +8,9 @@
 
 - name: Debian | setup holland apt repository
   apt_repository: repo='deb http://download.opensuse.org/repositories/home:/holland-backup/xUbuntu_14.04/ ./' state=present
+
+- name: Debian | install holland
+  apt: name={{ item }} state=present update_cache=yes cache_valid_time=86400
+  with_items:
+    - holland
+    - holland-mysqldump
